@@ -12,11 +12,8 @@ const __dirname = path.dirname(__filename);
 const carsFilePath = path.join(__dirname, "data", "cars.json");
 const carDataset = JSON.parse(fs.readFileSync(carsFilePath, "utf-8"));
 
-app.use(
-  cors({
-    origin: FRONTEND_ORIGIN,
-  })
-);
+app.use(cors({ origin: "*" }));
+
 app.use(express.json());
 
 const normalizeText = (value) => String(value || "").trim().toLowerCase();
